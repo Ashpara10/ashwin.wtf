@@ -5,6 +5,7 @@ import Link from "next/link"
 import MessagesList from "./guestbook/MessagesList"
 import GoogleSignIn from "./guestbook/GoogleSignIn"
 import GuestbookCard from "./guestbook/GuestbookCard"
+import ContributionHeatmap from "./ContributionHeatmap"
 
 const Landing = () => {
   const projects = [
@@ -31,6 +32,7 @@ const Landing = () => {
   ]
   return (
     <div className="max-w-3xl w-full flex flex-col px-4 md:p-0  mt-28 mx-auto">
+      {/* <ContributionHeatmap/> */}
       <h2 className="font-serif text-xl md:text-2xl ">
         Hi there, I’m
         <span className="text-3xl md:text-4xl text-strong tracking-tight mt-1 block">
