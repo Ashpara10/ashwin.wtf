@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useState } from "react";
-import { User, onAuthStateChanged } from "firebase/auth";
+import { User, onAuthStateChanged, getRedirectResult } from "firebase/auth";
 import { auth } from "@/lib/firebase";
 
 export function useAuthUser() {
@@ -17,6 +17,11 @@ export function useAuthUser() {
   }, []);
 
   useEffect(() => {
+    // Handle the result coming back from Google redirect
+    getRedirectResult(auth).catch((error) => {
+      console.error("Redirect sign-in error:", error.code, error.message);
+    });
+
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
       setAuthReady(true);
