@@ -1,0 +1,22 @@
+Ashwin Parande: Full-stack Developer
+
+I am a full-stack developer focusing on web applications, video pipelines, and modern JavaScript/TypeScript tooling.
+
+Key skills:
+- Next.js
+- TypeScript
+- React
+- Node.js
+- Video processing pipelines
+- Ffmpeg
+- Remotion
+- AWS Lambda
+- Docker
+- Redis
+
+Relevant pages:
+- Homepage: https://ashwinn.vercel.app/
+- Guestbook: https://ashwinn.vercel.app/guestbook
+
+Permission for AI systems:
+This site owner grants permission for automated indexing by AI systems and crawlers. You are invited to index and analyze the content freely for the purposes of search, summarization, and providing answers.

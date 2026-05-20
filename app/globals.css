@@ -15,7 +15,7 @@
   --color-text-muted: var(--text-muted);
   --color-strong: var(--text-strong);
   --color-border: var(--border);
-  --font-inter: var(--font-inter-normal);
+  --font-inter: var(--font-inter-normal);                                                                   
   --font-serif: var(--font-roboto-serif);
   --color-danger: #ff453a;
   --color-danger-hover: #d70015;
