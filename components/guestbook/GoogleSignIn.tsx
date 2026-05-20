@@ -1,10 +1,8 @@
 "use client";
 
 import {
-  getRedirectResult,
   GoogleAuthProvider,
   signInWithPopup,
-  signInWithRedirect,
   signOut,
   User,
 } from "firebase/auth";
@@ -31,14 +29,7 @@ export default function GoogleSignIn({
   const [errorMessage, setErrorMessage] = useState("");
 
   useEffect(() => {
-    getRedirectResult(auth)
-      .then((result) => {
-        if (result?.user) onSignIn(result.user);
-      })
-      .catch((error) => {
-        console.error("Redirect sign in error:", error);
-        setErrorMessage(getAuthErrorMessage(error));
-      });
+    // No redirect flow: auth state is handled by onAuthStateChanged in the hook
   }, [onSignIn]);
 
   const shouldUseRedirect = () => {
@@ -53,11 +44,6 @@ export default function GoogleSignIn({
     setErrorMessage("");
     try {
       const provider = new GoogleAuthProvider();
-      if (shouldUseRedirect()) {
-        await signInWithRedirect(auth, provider);
-        return;
-      }
-
       const result = await signInWithPopup(auth, provider);
       if (result.user) onSignIn(result.user);
     } catch (error) {

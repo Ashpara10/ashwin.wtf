@@ -41,7 +41,7 @@ export default function Guestbook() {
 
         {/* Messages Section */}
         <div className="">
-          <MessagesList messageItemClassName="px-4 md:py-4 md:px-0" />
+          <MessagesList messageItemClassName="px-4 md:p-4 " />
         </div>
       </div>
     </main>
