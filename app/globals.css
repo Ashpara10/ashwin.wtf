@@ -41,3 +41,57 @@ body {
   color: var(--foreground);
   font-family: var(--font-inter);
 }
+
+/* Hide scrollbars for elements that should not show them */
+.no-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+/* Ensure textarea doesn't show an inner scrollbar when autosizing */
+.no-scrollbar.textarea-autosize {
+  overflow: hidden;
+}
+
+/* Styled, accessible scrollbars for better appearance */
+.styled-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255,255,255,0.08) transparent;
+}
+.styled-scrollbar::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+.styled-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 9999px;
+}
+.styled-scrollbar::-webkit-scrollbar-thumb {
+  background-clip: padding-box;
+  background-color: rgba(255,255,255,0.08);
+  border-radius: 9999px;
+  border: 1px solid transparent;
+}
+.styled-scrollbar:hover::-webkit-scrollbar-thumb {
+  background-color: rgba(255,255,255,0.14);
+}
+
+@media (prefers-color-scheme: light) {
+  .styled-scrollbar {
+    scrollbar-color: rgba(0,0,0,0.12) transparent;
+  }
+  .styled-scrollbar::-webkit-scrollbar-thumb {
+    background-color: rgba(0,0,0,0.10);
+  }
+  .styled-scrollbar:hover::-webkit-scrollbar-thumb {
+    background-color: rgba(0,0,0,0.16);
+  }
+}
+
+/* For autosizing textarea ensure overflow auto so scrollbar appears when needed */
+.styled-scrollbar.textarea-autosize {
+  overflow: auto;
+}

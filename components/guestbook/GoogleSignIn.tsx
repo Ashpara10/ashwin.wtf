@@ -10,7 +10,7 @@ import { auth } from "@/lib/firebase";
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import { HugeiconsIcon } from "@hugeicons/react";
-import { Loading03Icon } from "@hugeicons/core-free-icons";
+import { Loading03Icon, LoginCircle01Icon, Logout, Logout01Icon, Logout02Icon } from "@hugeicons/core-free-icons";
 import Avatar from "./Avatar";
 
 
@@ -27,17 +27,13 @@ export default function GoogleSignIn({
 }: GoogleSignInProps) {
   const [loading, setLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
+  const isMobile =
+    typeof window !== "undefined" &&
+    window.matchMedia("(pointer: coarse)").matches;
 
   useEffect(() => {
     // No redirect flow: auth state is handled by onAuthStateChanged in the hook
   }, [onSignIn]);
-
-  const shouldUseRedirect = () => {
-    const isLocalhost = window.location.hostname === "localhost";
-    const isMobile = window.matchMedia("(pointer: coarse)").matches;
-
-    return isMobile || !isLocalhost;
-  };
 
   const handleSignIn = async () => {
     setLoading(true);
@@ -70,12 +66,12 @@ export default function GoogleSignIn({
 
   if (user) {
     return (
-      <div className="flex items-center gap-4 p-4 border border-border/40 rounded-xl">
-        <div className="flex min-w-0 items-center gap-3 rounded-lg">
+      <div className="flex items-center flex-row gap-4 md:p-4 md:border md:border-border/40 rounded-xl">
+        <div className="flex min-w-0 md:w-auto w-2/3 items-center gap-3 rounded-lg">
           <Avatar
             name={user.displayName || user.email || "User"}
             src={user.photoURL}
-            size="md"
+            size={"sm"}
           />
           <div>
             <p className="font-medium text-strong">{user.displayName || user.email}</p>
@@ -85,9 +81,13 @@ export default function GoogleSignIn({
         <button
           onClick={handleSignOut}
           disabled={loading}
-          className="ml-auto px-4 py-2 bg-danger text-danger-text rounded-lg cursor-pointer hover:bg-danger-hover disabled:opacity-50"
+          className="ml-auto md:px-4 p-2 md:py-2 bg-danger text-danger-text rounded-lg cursor-pointer hover:bg-danger-hover disabled:opacity-50"
         >
+          <span className="md:flex hidden">
+
           {loading ? "Signing out..." : "Sign Out"}
+          </span>
+          <HugeiconsIcon icon={LoginCircle01Icon} className="md:hidden flex size-4" />
         </button>
       </div>
     );

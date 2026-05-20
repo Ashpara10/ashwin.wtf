@@ -22,7 +22,7 @@ export default function Guestbook() {
 
         {/* Sign In Section */}
         {authReady && (
-          <div className="mb-8">
+          <div className="mb-8 px-4 md:p-0 ">
             <GoogleSignIn
               user={user}
               onSignIn={handleSignIn}
@@ -34,7 +34,7 @@ export default function Guestbook() {
 
         {/* Message Form Section */}
         {user && (
-          <div className="fixed z-50  mx-auto inset-x-2 md:inset-x-0 bottom-4">
+          <div className="fixed z-50 mx-auto inset-x-2 md:inset-x-0 bottom-4">
             <MessageForm user={user} />
           </div>
         )}
